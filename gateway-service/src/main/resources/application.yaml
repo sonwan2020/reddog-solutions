@@ -16,4 +16,4 @@ spring:
         secret:
           property-sources:
             - name: key-vault-property-source
-              endpoint: ${AZURE_KEY_VAULT_ENDPOINT}
+              endpoint: ${AZUREKEYVAULTENDPOINT}
