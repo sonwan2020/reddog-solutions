@@ -124,7 +124,7 @@ printf "export SERVICEBUSCONNECTIONSTRING='%s'\n" $SB_CONNECT_STRING >> $VARIABL
 printf "export OPENAI_API_BASE='%s'\n" $OPENAI_API_BASE >> $VARIABLES_FILE
 printf "export OPENAI_API_KEY='%s'\n" $OPENAI_API_KEY >> $VARIABLES_FILE
 printf "export AZURE_KEY_VAULT_NAME='%s'\n" $KEY_VAULT_NAME >> $VARIABLES_FILE
-printf "export AZURE_KEY_VAULT_ENDPOINT='%s'\n" $KEY_VAULT_URI >> $VARIABLES_FILE
+printf "export AZUREKEYVAULTENDPOINT='%s'\n" $KEY_VAULT_URI >> $VARIABLES_FILE
 
 printf "apiVersion: v1\n" > $CONFIGMAP_FILE
 printf "kind: ConfigMap\n" >> $CONFIGMAP_FILE
@@ -156,7 +156,7 @@ printf "  ORDER_SVC_URL: 'http://order-service.reddog.svc.cluster.local:8702'\n"
 printf "  OPENAI_API_BASE: '%s'\n" $OPENAI_API_BASE >> $CONFIGMAP_FILE
 printf "  OPENAI_API_KEY: '%s'\n" $OPENAI_API_KEY >> $CONFIGMAP_FILE
 printf "  AZURE_KEY_VAULT_NAME: '%s'\n" $KEY_VAULT_NAME >> $CONFIGMAP_FILE
-printf "  AZURE_KEY_VAULT_ENDPOINT: '%s'\n" $KEY_VAULT_URI >> $CONFIGMAP_FILE
+printf "  AZUREKEYVAULTENDPOINT: '%s'\n" $KEY_VAULT_URI >> $CONFIGMAP_FILE
 
 echo ''
 echo 'Local variables file created: ' $VARIABLES_FILE

@@ -27,7 +27,7 @@ spring:
   jms:
     servicebus:
       connection-string: ${SERVICEBUSCONNECTIONSTRING}
-      pricing-tier: ${SERVICEBUSPRICINGTIER:Basic}
+      pricing-tier: ${SERVICEBUSPRICINGTIER:standard}
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     password: ${MYSQLPASSWORD}
