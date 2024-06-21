@@ -41,6 +41,8 @@ data:
     CONTAINER: ${BLOB_CONTAINER:reddogasa}
     FILE_NAME: ${BLOB_FILE_NAME:receipts.txt}
 management:
+  tracing:
+    enabled: false
   endpoints:
     web:
       exposure:
@@ -58,6 +60,8 @@ springdoc:
     enabled: true
 ---
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile: dev
   application:
     name: receipt-generation-service
