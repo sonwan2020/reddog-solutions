@@ -4,9 +4,9 @@ RUN apk add --no-cache maven
 WORKDIR /opt/app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
-RUN mvn dependency:go-offline
+RUN mvn -ntp dependency:go-offline
 COPY ./src ./src
-RUN mvn clean install
+RUN mvn -ntp clean install -DskipTests
 
 # Using MS Build of OpenJDK image
 #FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu

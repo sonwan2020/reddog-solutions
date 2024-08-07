@@ -1,5 +1,5 @@
 param redisName string
-param location string
+param location string = resourceGroup().location
 
 resource redis 'Microsoft.Cache/redis@2020-12-01' = {
   name: redisName
@@ -16,4 +16,4 @@ resource redis 'Microsoft.Cache/redis@2020-12-01' = {
 
 output redisHost string = redis.properties.hostName
 output redisSslPort int = redis.properties.sslPort
-output redisPassword string = listKeys(redis.id, redis.apiVersion).primaryKey
+// output redisPassword string = listKeys(redis.id, redis.apiVersion).primaryKey

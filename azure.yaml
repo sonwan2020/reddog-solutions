@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+# This is an example starter azure.yaml file containing several example services in comments below.
+# Make changes as needed to describe your application setup.
+# To learn more about the azure.yaml file, visit https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/azd-schema
+
+# Name of the application.
+name: reddog
+infra:
+  provider: bicep
+  path: infra/bicep
+
+services:
+  accounting-service:
+    language: java
+    project: ./accounting-service
+    host: aks
+    k8s:
+      kustomize:
+        dir: ./kustomize
+        edits:
+          - set image ghcr.io/azure/reddog-demo/reddog-java-accounting-service=${AZURE_CONTAINER_REGISTRY_NAME}.azurecr.io/reddog/accounting-service:latest
+        env:
+          AZURE_KEY_VAULT_ENDPOINT: ${AZURE_KEY_VAULT_ENDPOINT}
+          SPRING_PROFILES_ACTIVE: key-vault
+          SPRING_CLOUD_AZURE_CREDENTIAL_MANAGEDIDENTITYENABLED: true
+          SPRING_CLOUD_AZURE_COSMOS_ENDPOINT: ${AZURE_COSMOS_URL}
+          SPRING_CLOUD_AZURE_COSMOS_DATABASE: ${AZURE_COSMOS_DATABASE}
+          SPRING_KAFKA_BOOTSTRAP_SERVERS: ${AZURE_EVENTHUBS_NAMESPACE_NAME}.servicebus.windows.net:9093
+          SERVER_PORT: 8707
+    docker:
+      path: ./Dockerfile-multi-stage
+      image: reddog/accounting-service
+      tag: latest

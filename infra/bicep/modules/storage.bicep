@@ -1,6 +1,6 @@
 param storageAccountName string
 param blobContainerName string
-param location string
+param location string = resourceGroup().location
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   name: storageAccountName
@@ -21,5 +21,5 @@ resource blobContainer 'Microsoft.Storage/storageAccounts/blobServices/container
   name: blobContainerName
 }
 
-output accessKey string = listkeys(storageAccount.id, storageAccount.apiVersion).keys[0].value
+// output accessKey string = listkeys(storageAccount.id, storageAccount.apiVersion).keys[0].value
 output storageAccountName string = storageAccountName

@@ -1,4 +1,4 @@
-param location string
+param location string = resourceGroup().location
 param eventHubSku string = 'Standard'
 param eventHubNamespaceName string
 param eventHubName string

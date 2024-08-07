@@ -1,7 +1,6 @@
-param location string
+param location string = resourceGroup().location
 param cosmosAccountName string
 param cosmosDatabaseName string
-param cosmosCollectionName string
 
 resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2021-06-15' = {
   name: cosmosAccountName
@@ -17,6 +16,7 @@ resource cosmosAccount 'Microsoft.DocumentDB/databaseAccounts@2021-06-15' = {
       }
     ]
     databaseAccountOfferType: 'Standard'
+    disableLocalAuth: false
   }
 }
 

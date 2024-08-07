@@ -1,5 +1,5 @@
 param servername string
-param location string
+param location string = resourceGroup().location
 param skuname string = 'Standard_D2ds_v4'
 param tier string = 'GeneralPurpose'
 param dbName string
