@@ -15,7 +15,7 @@ param uniqueServiceName string
 param resourceGroupName string
 param cosmosDatabaseName string = 'reddog'
 param blobContainerName string = 'receipts'
-param includeOpenAI string = 'true'
+param includeOpenAI string = 'false'
 param dbName string = 'reddog'
 param adminLogin string = 'reddog'
 @secure()

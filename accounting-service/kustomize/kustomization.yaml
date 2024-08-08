@@ -13,5 +13,5 @@ generatorOptions:
 
 images:
 - name: ghcr.io/azure/reddog-demo/reddog-java-accounting-service
-  newName: crxiada.azurecr.io/reddog/accounting-service
+  newName: crreddogs.azurecr.io/reddog/accounting-service
   newTag: latest

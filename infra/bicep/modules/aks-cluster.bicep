@@ -1,6 +1,6 @@
 param name string
 param nodeCount int = 5
-param vmSize string = 'Standard_D4_v3'
+param vmSize string = 'Standard_D4s_v3'
 param location string = resourceGroup().location
 @description('The name of the keyvault to grant access')
 param keyVaultName string
