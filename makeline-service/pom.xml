@@ -15,7 +15,7 @@
     <description>makeline-service</description>
     <properties>
         <java.version>17</java.version>
-        <opentelemetry.version>1.6.0</opentelemetry.version>
+        <opentelemetry.version>1.39.0</opentelemetry.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <azure-support.version>0.1.8</azure-support.version>
@@ -76,8 +76,13 @@
         </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-api</artifactId>
+            <version>${opentelemetry.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-zipkin</artifactId>
-            <version>1.39.0</version>
+            <version>${opentelemetry.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.kafka</groupId>

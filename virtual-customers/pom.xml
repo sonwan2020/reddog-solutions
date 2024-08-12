@@ -15,7 +15,7 @@
     <description>virtual-customers</description>
     <properties>
         <java.version>17</java.version>
-        <opentelemetry.version>1.6.0</opentelemetry.version>
+        <opentelemetry.version>1.39.0</opentelemetry.version>
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <jobrunr-spring-boot-starter.version>5.1.7</jobrunr-spring-boot-starter.version>
         <datafaker.version>1.7.0</datafaker.version>
@@ -71,8 +71,13 @@
         </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-api</artifactId>
+            <version>${opentelemetry.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-zipkin</artifactId>
-            <version>1.39.0</version>
+            <version>${opentelemetry.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
