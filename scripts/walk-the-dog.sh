@@ -218,8 +218,8 @@ then
         --scope cluster \
         --name reddog-java-apps \
         --namespace flux-system \
-        --url https://github.com/appdevgbb/reddog-code-spring.git \
-        --branch main \
+        --url https://github.com/sonwan2020/reddog-code-spring.git \
+        --branch sonwan/aks \
         --kustomization name=kustomize path=./manifests/ prune=true \
          -o table
 

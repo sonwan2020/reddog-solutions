@@ -109,11 +109,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>com.azure.spring</groupId>
             <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
             <version>${spring-cloud-azure.version}</version>
-        </dependency>
+        </dependency> -->
     </dependencies>
     <dependencyManagement>
         <dependencies>
