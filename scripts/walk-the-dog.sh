@@ -1,5 +1,7 @@
 source functions.sh
 
+set -x
+
 export RG=$1
 export LOCATION=$2
 export SUFFIX=$3
@@ -7,7 +9,7 @@ export USERNAME=$4
 export ADMIN_PASSWORD=$5
 export DEPLOY_TARGET=$6
 export INCLUDE_OPENAI=$7
-export UNIQUE_SERVICE_NAME=reddog$RANDOM$USERNAME$SUFFIX
+export UNIQUE_SERVICE_NAME=rddg
 export AKS_NAME=aks$UNIQUE_SERVICE_NAME
 
 # show all params
@@ -40,12 +42,12 @@ echo '****************************************************'
 az deployment group create \
     --name reddog-backing-services \
     --mode Incremental \
-    --only-show-errors \
     --resource-group $RG \
     --template-file .././deploy/bicep/main.bicep \
     --parameters uniqueServiceName=$UNIQUE_SERVICE_NAME \
     --parameters includeOpenAI=$INCLUDE_OPENAI \
-    --parameters adminPassword=$ADMIN_PASSWORD -o table
+    --parameters adminPassword=$ADMIN_PASSWORD -o table \
+    --verbose --debug
 
 # need error handling here
 
