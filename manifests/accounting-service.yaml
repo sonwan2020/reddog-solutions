@@ -20,7 +20,7 @@ spec:
           image: ghcr.io/azure/reddog-demo/reddog-java-accounting-service:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8707     
+            - containerPort: 8707
           envFrom:
           - configMapRef:
               name: reddog-env-vars

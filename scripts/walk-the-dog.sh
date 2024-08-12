@@ -167,7 +167,7 @@ echo ''
 
 echo '****************************************************'
 echo 'Base Azure services deployed'
-echo '****************************************************'  
+echo '****************************************************'
 
 # check deployment target and proceed
 if [ "$DEPLOY_TARGET" = "local" ]
@@ -191,7 +191,7 @@ then
     echo '****************************************************'
     echo 'Script complete'
     echo '****************************************************'
-    exit 0    
+    exit 0
 elif [ "$DEPLOY_TARGET" = "aks" ]
 then
     echo ''
@@ -227,7 +227,7 @@ then
     echo '****************************************************'
     echo 'Script complete'
     echo '****************************************************'
-    exit 0   
+    exit 0
 else
     echo 'ERROR: Value in config.json is not correct. Exiting'
     exit 0
