@@ -155,6 +155,7 @@ printf "  AZURESTORAGEACCOUNTKEY: '%s'\n" $STORAGE_ACCOUNT_KEY >> $CONFIGMAP_FIL
 printf "  AZURESTORAGEENDPOINT: 'https://%s.blob.core.windows.net'\n" $STORAGE_ACCOUNT >> $CONFIGMAP_FILE
 printf "  SERVICEBUSCONNECTIONSTRING: '%s'\n" $SB_CONNECT_STRING >> $CONFIGMAP_FILE
 printf "  ORDER_SVC_URL: 'http://order-service.reddog.svc.cluster.local:8702'\n" >> $CONFIGMAP_FILE
+printf "  MAKELINE_SVC_URL: 'http://make-line-service.reddog.svc.cluster.local:8704/'\n" >> $CONFIGMAP_FILE
 printf "  OPENAI_API_BASE: '%s'\n" $OPENAI_API_BASE >> $CONFIGMAP_FILE
 printf "  OPENAI_API_KEY: '%s'\n" $OPENAI_API_KEY >> $CONFIGMAP_FILE
 printf "  AZURE_KEY_VAULT_NAME: '%s'\n" $KEY_VAULT_NAME >> $CONFIGMAP_FILE

@@ -16,6 +16,7 @@
     <properties>
         <java.version>17</java.version>
         <opentelemetry.version>1.39.0</opentelemetry.version>
+        <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <spring-cloud-azure.version>5.13.0</spring-cloud-azure.version>
         <spring-cloud.version>2023.0.2</spring-cloud.version>
     </properties>
@@ -54,7 +55,7 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.6.9</version>
+            <version>${springdoc-openapi-ui.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
