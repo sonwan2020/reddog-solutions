@@ -3,6 +3,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 ACR=reddogacr.azurecr.io
+TAG=latest
 
 PROJECT=$DIR/..
 
@@ -12,9 +13,19 @@ do
 
     mvn clean package
 
-    IMAGE=$ACR/reddogs/$component
+    IMAGE=$ACR/reddogs/$component:$TAG
 
-    docker build . -f Dockerfile-multi-stage -t $IMAGE
+    docker build . -f Dockerfile -t $IMAGE
 
     docker push $IMAGE
 done
+
+# openai-service
+component=openai-service
+IMAGE=$ACR/reddogs/$component:TAG
+
+cd $PROJECT/generative-ai/az-openai
+
+docker build . -f Dockerfile -t $IMAGE
+
+docker push $IMAGE
