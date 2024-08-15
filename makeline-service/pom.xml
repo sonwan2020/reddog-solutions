@@ -197,7 +197,7 @@
                         <artifactItem>
                             <groupId>com.microsoft.azure</groupId>
                             <artifactId>applicationinsights-agent</artifactId>
-                            <version>3.5.3</version>
+                            <version>3.5.4</version>
                             <outputDirectory>${project.build.directory}/agent</outputDirectory>
                             <destFileName>applicationinsights-agent.jar</destFileName>
                         </artifactItem>

@@ -6,12 +6,11 @@ ACR=reddogacr.azurecr.io
 
 PROJECT=$DIR/..
 
-#for component in accounting-service loyalty-service makeline-service order-service receipt-generation-service virtual-customers virtual-worker
-for component in virtual-worker
+for component in accounting-service loyalty-service makeline-service order-service receipt-generation-service virtual-customers virtual-worker
 do
     cd $PROJECT/$component
 
-    #mvn clean package
+    mvn clean package
 
     IMAGE=$ACR/reddogs/$component
 
