@@ -15,11 +15,11 @@
     <description>makeline-service</description>
     <properties>
         <java.version>17</java.version>
-        <opentelemetry.version>1.39.0</opentelemetry.version>
+        <opentelemetry.version>1.41.0</opentelemetry.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <azure-support.version>0.1.8</azure-support.version>
-        <azure.spring.data.cosmos.version>5.13.0</azure.spring.data.cosmos.version>
+        <azure.spring.data.cosmos.version>5.15.0</azure.spring.data.cosmos.version>
         <spring-cloud-azure.version>5.13.0</spring-cloud-azure.version>
         <spring-cloud.version>2023.0.2</spring-cloud.version>
     </properties>
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-tracing-bridge-otel</artifactId>
-            <version>1.3.1</version>
+            <version>1.3.3</version>
         </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
@@ -206,11 +206,4 @@
             </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/appdevgbb/reddog-code-spring</url>
-        </repository>
-    </distributionManagement>
 </project>
