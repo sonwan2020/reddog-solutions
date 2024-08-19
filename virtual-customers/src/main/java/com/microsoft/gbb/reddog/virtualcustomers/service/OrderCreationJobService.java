@@ -41,9 +41,9 @@ public class OrderCreationJobService {
 
     private static final WebClient webClient = WebClient.create();
 
-    // public OrderCreationJobService(CustomerGenerator customerGenerator) {
-    // this.customerGenerator = customerGenerator;
-    // }
+    public OrderCreationJobService(CustomerGenerator customerGenerator) {
+        this.customerGenerator = customerGenerator;
+    }
 
     @Value("${data.ORDER_SVC_URL}")
     public void setOrderServiceUrlStatic(String orderServiceUrl) {
