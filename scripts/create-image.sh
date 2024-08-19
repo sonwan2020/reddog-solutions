@@ -12,6 +12,7 @@ do
     cd $PROJECT/$component
 
     mvn clean package
+    [[ $? -ne 0 ]] && exit 1
 
     IMAGE=$ACR/reddogs/$component:$TAG
 
@@ -19,6 +20,8 @@ do
 
     docker push $IMAGE
 done
+
+exit 0
 
 # openai-service
 component=openai-service

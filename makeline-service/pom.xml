@@ -15,7 +15,7 @@
     <description>makeline-service</description>
     <properties>
         <java.version>17</java.version>
-        <opentelemetry.version>1.41.0</opentelemetry.version>
+        <opentelemetry.version>1.39.0</opentelemetry.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <azure-support.version>0.1.8</azure-support.version>
@@ -76,11 +76,6 @@
         </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-api</artifactId>
-            <version>${opentelemetry.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-zipkin</artifactId>
             <version>${opentelemetry.version}</version>
         </dependency>
@@ -88,10 +83,6 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-stream-kafka</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-support</artifactId>
@@ -124,11 +115,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-circuitbreaker-resilience4j</artifactId>
         </dependency>
-        <!-- <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
-            <version>${spring-cloud-azure.version}</version>
-        </dependency> -->
     </dependencies>
     <dependencyManagement>
         <dependencies>

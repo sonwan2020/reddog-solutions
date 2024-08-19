@@ -15,7 +15,7 @@
     <description>virtual-worker</description>
     <properties>
         <java.version>17</java.version>
-        <opentelemetry.version>1.41.0</opentelemetry.version>
+        <opentelemetry.version>1.39.0</opentelemetry.version>
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <spring-cloud-azure.version>5.13.0</spring-cloud-azure.version>
         <spring-cloud.version>2023.0.2</spring-cloud.version>
@@ -74,11 +74,6 @@
         </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-api</artifactId>
-            <version>${opentelemetry.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-zipkin</artifactId>
             <version>${opentelemetry.version}</version>
         </dependency>
@@ -102,11 +97,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-circuitbreaker-resilience4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
-            <version>${spring-cloud-azure.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

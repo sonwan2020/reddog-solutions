@@ -15,7 +15,6 @@
     <description>order-service</description>
     <properties>
         <java.version>17</java.version>
-        <opentelemetry.version>1.41.0</opentelemetry.version>
         <spring-cloud.version>2023.0.2</spring-cloud.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
@@ -111,13 +110,8 @@
         </dependency>
         <dependency>
             <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-api</artifactId>
-            <version>${opentelemetry.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-zipkin</artifactId>
-            <version>${opentelemetry.version}</version>
+            <version>1.39.0</version>
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
@@ -145,11 +139,6 @@
             <artifactId>hibernate-validator</artifactId>
             <version>8.0.1.Final</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
-            <version>${spring-cloud-azure.version}</version>
-        </dependency> -->
     </dependencies>
     <dependencyManagement>
         <dependencies>
