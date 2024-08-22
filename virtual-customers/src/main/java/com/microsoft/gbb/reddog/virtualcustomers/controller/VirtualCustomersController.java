@@ -32,8 +32,7 @@ public class VirtualCustomersController {
         }
         log.info("Creating {} orders from {}", numOrders, origin);
         List<CustomerOrder> orders = orderCreationJobService.createOrders(numOrders, origin);
-        // jobScheduler.enqueue(orderCreationJobService::execute);
-        orderCreationJobService.execute();
+        jobScheduler.<OrderCreationJobService>enqueue(x -> x.execute());
         return ResponseEntity.ok(orders);
     }
 }

@@ -9,7 +9,6 @@ import com.microsoft.gbb.reddog.virtualcustomers.util.CustomerGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.jobrunr.jobs.annotations.Job;
 import org.jobrunr.spring.annotations.Recurring;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -36,7 +35,6 @@ public class OrderCreationJobService {
     @Value("${data.STORE_ID}")
     private String STORE_ID;
 
-    @Autowired
     private CustomerGenerator customerGenerator;
 
     private static final WebClient webClient = WebClient.create();

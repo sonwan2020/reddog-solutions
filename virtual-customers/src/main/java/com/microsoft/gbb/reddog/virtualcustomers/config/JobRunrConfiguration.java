@@ -6,6 +6,7 @@ import org.jobrunr.scheduling.JobScheduler;
 import org.jobrunr.storage.InMemoryStorageProvider;
 import org.jobrunr.storage.StorageProvider;
 import org.jobrunr.utils.mapper.jackson.JacksonJsonMapper;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,9 +26,12 @@ public class JobRunrConfiguration {
     }
 
     @Bean
-    public JobScheduler initJobRunr(StorageProvider storageProvider) {
+    public JobScheduler initJobRunr(StorageProvider storageProvider, ApplicationContext applicationContext) {
         return JobRunr.configure()
+                .useJobActivator(applicationContext::getBean)
                 .useStorageProvider(storageProvider)
-                .useBackgroundJobServer().initialize().getJobScheduler();
+                .useBackgroundJobServer()
+                .initialize()
+                .getJobScheduler();
     }
 }

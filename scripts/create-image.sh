@@ -21,8 +21,6 @@ do
     docker push $IMAGE
 done
 
-exit 0
-
 # openai-service
 component=openai-service
 IMAGE=$ACR/reddogs/$component:TAG
