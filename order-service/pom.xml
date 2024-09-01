@@ -104,17 +104,6 @@
             <version>${org.mapstruct.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-tracing-bridge-otel</artifactId>
-            <version>1.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-exporter-zipkin</artifactId>
-            <version>1.39.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>${springdoc-openapi-ui.version}</version>
@@ -139,11 +128,6 @@
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>8.0.1.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
-            <version>${spring-cloud-azure.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -220,7 +204,7 @@
                         <artifactItem>
                             <groupId>com.microsoft.azure</groupId>
                             <artifactId>applicationinsights-agent</artifactId>
-                            <version>3.5.3</version>
+                            <version>3.5.4</version>
                             <outputDirectory>${project.build.directory}/agent</outputDirectory>
                             <destFileName>applicationinsights-agent.jar</destFileName>
                         </artifactItem>
@@ -229,25 +213,4 @@
             </plugin>
         </plugins>
     </build>
-<!--    <repository>-->
-<!--        <repository>-->
-<!--            &lt;!&ndash;Configure and add personal access token in maven settings, see&ndash;&gt;-->
-<!--            &lt;!&ndash; https://devdiv.visualstudio.com/OnlineServices/_artifacts/feed/java-engineering-feed/connect/maven &ndash;&gt;-->
-<!--            <id>java-engineering-feed</id>-->
-<!--            <url>https://devdiv.pkgs.visualstudio.com/_packaging/java-engineering-feed/maven/v1</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--    </repository>-->
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/appdevgbb/reddog-code-spring</url>
-        </repository>
-    </distributionManagement>
 </project>

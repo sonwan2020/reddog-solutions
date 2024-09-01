@@ -1,5 +1,7 @@
 source functions.sh
 
+set -x
+
 export RG=$1
 export LOCATION=$2
 export SUFFIX=$3
@@ -7,7 +9,7 @@ export USERNAME=$4
 export ADMIN_PASSWORD=$5
 export DEPLOY_TARGET=$6
 export INCLUDE_OPENAI=$7
-export UNIQUE_SERVICE_NAME=reddog$RANDOM$USERNAME$SUFFIX
+export UNIQUE_SERVICE_NAME=rddg
 export AKS_NAME=aks$UNIQUE_SERVICE_NAME
 
 # show all params
@@ -40,12 +42,12 @@ echo '****************************************************'
 az deployment group create \
     --name reddog-backing-services \
     --mode Incremental \
-    --only-show-errors \
     --resource-group $RG \
     --template-file .././deploy/bicep/main.bicep \
     --parameters uniqueServiceName=$UNIQUE_SERVICE_NAME \
     --parameters includeOpenAI=$INCLUDE_OPENAI \
-    --parameters adminPassword=$ADMIN_PASSWORD -o table
+    --parameters adminPassword=$ADMIN_PASSWORD -o table \
+    --verbose --debug
 
 # need error handling here
 
@@ -153,6 +155,7 @@ printf "  AZURESTORAGEACCOUNTKEY: '%s'\n" $STORAGE_ACCOUNT_KEY >> $CONFIGMAP_FIL
 printf "  AZURESTORAGEENDPOINT: 'https://%s.blob.core.windows.net'\n" $STORAGE_ACCOUNT >> $CONFIGMAP_FILE
 printf "  SERVICEBUSCONNECTIONSTRING: '%s'\n" $SB_CONNECT_STRING >> $CONFIGMAP_FILE
 printf "  ORDER_SVC_URL: 'http://order-service.reddog.svc.cluster.local:8702'\n" >> $CONFIGMAP_FILE
+printf "  MAKELINE_SVC_URL: 'http://make-line-service.reddog.svc.cluster.local:8704/'\n" >> $CONFIGMAP_FILE
 printf "  OPENAI_API_BASE: '%s'\n" $OPENAI_API_BASE >> $CONFIGMAP_FILE
 printf "  OPENAI_API_KEY: '%s'\n" $OPENAI_API_KEY >> $CONFIGMAP_FILE
 printf "  AZURE_KEY_VAULT_NAME: '%s'\n" $KEY_VAULT_NAME >> $CONFIGMAP_FILE
@@ -165,7 +168,7 @@ echo ''
 
 echo '****************************************************'
 echo 'Base Azure services deployed'
-echo '****************************************************'  
+echo '****************************************************'
 
 # check deployment target and proceed
 if [ "$DEPLOY_TARGET" = "local" ]
@@ -189,7 +192,7 @@ then
     echo '****************************************************'
     echo 'Script complete'
     echo '****************************************************'
-    exit 0    
+    exit 0
 elif [ "$DEPLOY_TARGET" = "aks" ]
 then
     echo ''
@@ -216,8 +219,8 @@ then
         --scope cluster \
         --name reddog-java-apps \
         --namespace flux-system \
-        --url https://github.com/appdevgbb/reddog-code-spring.git \
-        --branch main \
+        --url https://github.com/sonwan2020/reddog-code-spring.git \
+        --branch sonwan/aks \
         --kustomization name=kustomize path=./manifests/ prune=true \
          -o table
 
@@ -225,7 +228,7 @@ then
     echo '****************************************************'
     echo 'Script complete'
     echo '****************************************************'
-    exit 0   
+    exit 0
 else
     echo 'ERROR: Value in config.json is not correct. Exiting'
     exit 0

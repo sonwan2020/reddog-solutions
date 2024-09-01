@@ -17,9 +17,9 @@ public class VirtualCustomersController {
     private final JobScheduler jobScheduler;
     private final OrderCreationJobService orderCreationJobService;
 
-    public VirtualCustomersController(JobScheduler jobScheduler, OrderCreationJobService orderCreationJobService1) {
+    public VirtualCustomersController(JobScheduler jobScheduler, OrderCreationJobService orderCreationJobService) {
         this.jobScheduler = jobScheduler;
-        this.orderCreationJobService = orderCreationJobService1;
+        this.orderCreationJobService = orderCreationJobService;
     }
 
     @PostMapping(value = "/simulate-orders")
@@ -32,7 +32,7 @@ public class VirtualCustomersController {
         }
         log.info("Creating {} orders from {}", numOrders, origin);
         List<CustomerOrder> orders = orderCreationJobService.createOrders(numOrders, origin);
-        jobScheduler.enqueue(orderCreationJobService::execute);
+        jobScheduler.<OrderCreationJobService>enqueue(x -> x.execute());
         return ResponseEntity.ok(orders);
     }
 }

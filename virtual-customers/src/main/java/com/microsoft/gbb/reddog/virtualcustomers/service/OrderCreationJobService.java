@@ -9,8 +9,6 @@ import com.microsoft.gbb.reddog.virtualcustomers.util.CustomerGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.jobrunr.jobs.annotations.Job;
 import org.jobrunr.spring.annotations.Recurring;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -28,6 +26,7 @@ import java.util.Objects;
 public class OrderCreationJobService {
 
     public static final String ORIGIN = "jobrunr";
+
     @Value("${data.ORDER_SVC_URL}")
     private String orderServiceUrl;
 
@@ -36,17 +35,19 @@ public class OrderCreationJobService {
     @Value("${data.STORE_ID}")
     private String STORE_ID;
 
-    private final CustomerGenerator customerGenerator;
+    private CustomerGenerator customerGenerator;
 
     private static final WebClient webClient = WebClient.create();
 
     public OrderCreationJobService(CustomerGenerator customerGenerator) {
         this.customerGenerator = customerGenerator;
     }
+
     @Value("${data.ORDER_SVC_URL}")
     public void setOrderServiceUrlStatic(String orderServiceUrl) {
         OrderCreationJobService.ORDER_SVC_URL = orderServiceUrl + "/";
     }
+
     @Recurring(id = "create-orders", cron = "#{'${data.CREATE_ORDER_CRON_SCHEDULE}'}")
     @Job(name = "Virtual Customers")
     public void execute() {

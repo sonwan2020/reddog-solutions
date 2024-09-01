@@ -12,12 +12,12 @@ export CONFIG="$(cat config.json | jq -r .)"
 # set variables
 export LOCATION="$(echo $CONFIG | jq -r '.location')"
 export USERNAME="$(echo $CONFIG | jq -r '.username')"
-export USERNAME_CUT=${USERNAME:0:5}
+export USERNAME_CUT=${USERNAME:0:8}
 export ADMIN_PASSWORD="$(echo $CONFIG | jq -r '.adminpassword')"
 export DEPLOY_TARGET="$(echo $CONFIG | jq -r '.deploytarget')"
 export INCLUDE_OPENAI="$(echo $CONFIG | jq -r '.include_openai')"
-export SUFFIX=$RANDOM
-export RG=reddog-$USERNAME_CUT-$DEPLOY_TARGET-$SUFFIX
+export SUFFIX=rd
+export RG=reddogs-$USERNAME_CUT-$DEPLOY_TARGET
 # make it lowercase
 export RG=$(echo $RG | tr '[:upper:]' '[:lower:]')
 export LOGFILE_NAME=".././outputs/${RG}.log"

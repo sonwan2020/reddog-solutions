@@ -56,11 +56,6 @@
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-starter-keyvault-secrets</artifactId>
-            <version>${spring-cloud-azure.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
@@ -141,7 +136,7 @@
                         <artifactItem>
                             <groupId>com.microsoft.azure</groupId>
                             <artifactId>applicationinsights-agent</artifactId>
-                            <version>3.5.3</version>
+                            <version>3.5.4</version>
                             <outputDirectory>${project.build.directory}/agent</outputDirectory>
                             <destFileName>applicationinsights-agent.jar</destFileName>
                         </artifactItem>
@@ -150,11 +145,4 @@
             </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/appdevgbb/reddog-code-spring</url>
-        </repository>
-    </distributionManagement>
 </project>

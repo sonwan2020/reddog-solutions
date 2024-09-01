@@ -21,7 +21,7 @@ deploy_azure_kubernetes_service () {
     --resource-group $RG \
     --template-file .././deploy/bicep/aks.bicep \
     --parameters aksName=$AKS_NAME \
-    --parameters nodeCount=5 -o table
+    --parameters nodeCount=2 -o table
 }
 
 check_for_azure_login () {
